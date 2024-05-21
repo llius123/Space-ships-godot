@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://h8u3kt7xttuc"]
+
+[ext_resource type="Script" path="res://node/player/player.gd" id="1_texjn"]
+[ext_resource type="Texture2D" uid="uid://dk41et78200l3" path="res://assets/player_sprite.png" id="2_w88xg"]
+[ext_resource type="PackedScene" uid="uid://bktostrtp373h" path="res://node/health_bar/health_bar.tscn" id="3_1jm3x"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7ijg3"]
+size = Vector2(128, 97)
+
+[sub_resource type="GDScript" id="GDScript_fy73d"]
+script/source = "extends Node2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+"
+
+[node name="Player" type="CharacterBody2D"]
+scale = Vector2(2, 2)
+script = ExtResource("1_texjn")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.332474, 0.348375)
+texture = ExtResource("2_w88xg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_7ijg3")
+
+[node name="HealthBar" parent="." instance=ExtResource("3_1jm3x")]
+position = Vector2(-135.5, -78)
+script = SubResource("GDScript_fy73d")
+
+[node name="Camera2D" type="Camera2D" parent="."]

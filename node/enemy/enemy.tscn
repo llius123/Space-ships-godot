@@ -1,0 +1,39 @@
+[gd_scene load_steps=7 format=3 uid="uid://dx27udtajjv6s"]
+
+[ext_resource type="Texture2D" uid="uid://lnbixrj3rlxb" path="res://assets/enemy_sprite.png" id="1_5o82q"]
+[ext_resource type="Script" path="res://node/enemy/enemy.gd" id="1_nxk2l"]
+[ext_resource type="PackedScene" uid="uid://bktostrtp373h" path="res://node/health_bar/health_bar.tscn" id="3_loo66"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8as4a"]
+radius = 181.011
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1fl6b"]
+size = Vector2(127, 91)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nvb7d"]
+radius = 380.001
+
+[node name="Enemy" type="CharacterBody2D"]
+script = ExtResource("1_nxk2l")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.332, 0.332)
+texture = ExtResource("1_5o82q")
+
+[node name="HealthBar" parent="." instance=ExtResource("3_loo66")]
+position = Vector2(-140, -74)
+
+[node name="FocusArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FocusArea"]
+shape = SubResource("CircleShape2D_8as4a")
+
+[node name="BodyArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BodyArea"]
+shape = SubResource("RectangleShape2D_1fl6b")
+
+[node name="FollowArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FollowArea"]
+shape = SubResource("CircleShape2D_nvb7d")

@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://d35rhpdgk3ape"]
+
+[ext_resource type="PackedScene" uid="uid://h8u3kt7xttuc" path="res://node/player/player.tscn" id="1_blv3y"]
+[ext_resource type="PackedScene" uid="uid://c5kbs1bdcw4cl" path="res://node/helper/ui_help.tscn" id="2_oubuv"]
+
+[node name="Main" type="Node2D"]
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("1_blv3y")]
+position = Vector2(549, 352)
+scale = Vector2(1, 1)
+
+[node name="Control" parent="." instance=ExtResource("2_oubuv")]
